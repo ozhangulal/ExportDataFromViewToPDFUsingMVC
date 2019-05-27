@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Export PDF with asp.NET MVC</title>
+    <link href="@Url.Content("~/Content/Css/MyStyle.css")" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h3>List Product</h3>
+        <table cellpadding="2" cellspacing="2" border="1">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Photo</th>
+            </tr>
+            @foreach (var product in ViewBag.ListProduct)
+            {
+                <tr>
+                    <td><span class="product_name">@product.Id</span></td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td><img src="@Url.Content("~/Content/")Images/@product.Photo" /></td>
+                </tr>
+            }
+        </table>
+        <br />
+        <a href="@Url.Action("ExportPDF","Home")">Export PDF</a>
+    </div>
+</body>
+</html>
+
